@@ -1,40 +1,43 @@
 var Links = {
-    setcolor:function(color) {
-        // var links = document.querySelectorAll('a');
-        // var i = 0;
-        // while(i<links.length) {
-        //     links[i].style.color = color;
-        //     i=i+1;
-        // }
-        $('a').css('color', color);
+    setColor:function (color) {
+        var i = 0;
+        var atagarr = document.querySelectorAll('a');
+        for (i = 0; i < atagarr.length; i++) {
+            atagarr[i].style.color = color;
+        }
     }
 }
-
 var Body = {
-    setColor:function(color) {
-        // document.querySelector('body').style.color = color;
-        $('body').css('color',color);
+    setColor:function (color) {
+        document.querySelector('body').style.color = color;    
     },
-    setBackgroundColor:function(color) {
-        // document.querySelector('body').style.backgroundColor = color;    
-        $('body').css('backgroundColor',color);
+    setBackgroundColor:function (color) {
+        document.querySelector('body').style.backgroundColor = color;    
     }
 }
-
 function nightDayHandler(self) {
-    var target = document.querySelector('body')
-    if(self.value === 'night') {
+    var target = document.querySelector('body');
+    if (self.value === 'night') {
         Body.setBackgroundColor('black');
         Body.setColor('white');
-        self.value = 'day';
-        
-        Links.setcolor('white');
-    }
-    else {
+        Links.setColor('powderblue');
+
+        var i = 0;
+        var inputDNarr = document.querySelectorAll('.dn');
+        for(i = 0 ; i < inputDNarr.length ; i++) {
+            inputDNarr[i].value = 'day';
+        }
+        // self.value = 'day'
+    } else {
         Body.setBackgroundColor('white');
         Body.setColor('black');
-        self.value = 'night';
+        Links.setColor('blue');
 
-        Links.setcolor('blue');
+        var i = 0;
+        var inputDNarr = document.querySelectorAll('.dn');
+        for(i = 0 ; i < inputDNarr.length ; i++) {
+            inputDNarr[i].value = 'night';
+        }
+        // self.value = 'night'
     }
 }
